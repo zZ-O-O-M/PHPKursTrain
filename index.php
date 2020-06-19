@@ -1,16 +1,22 @@
 <?php
 
+$isSend = false;
+$err = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $name = trim($_POST['name']);
-  $phone = trim($_POST['phone']);
-  $dt = date("Y-d-m H:i:s");
+    $name = trim($_POST['name']);
+    $phone = trim($_POST['phone']);
+    $dt = date("Y-d-m H:i:s");
 
-  $mailBody = "$dt\n$phone\n$name";
-
-  mail('admin@mail.ru', 'New app on site', $mailBody);
-
+    if ($name === '' or $phone === '') {
+        $err = 'Fill in all the fields on the form';
+    } else {
+        $mailBody = "$dt\n$phone\n$name";
+        mail('admin@mail.ru', 'New app on site', $mailBody);
+        $isSend = true;
+    }
 } else {
-  echo 'nopost';
+    echo 'nopost';
 }
 
 echo $_SERVER['REQUEST_METHOD'];
@@ -32,12 +38,19 @@ echo "</pre>";
 </head>
 <body>
 
-<form method="post">
-	Name: <br>
-	<input type="text" name="name"><br>
-	Phone: <br>
-	<input type="text" name="phone"><br>
-	<button>send</button>
-</form>
+<div class="form">
+    <? if ($isSend): ?>
+			<p>Your app is done!</p>
+    <? else: ?>
+			<form method="post">
+				Name: <br>
+				<input type="text" name="name"><br>
+				Phone: <br>
+				<input type="text" name="phone"><br>
+				<button>send</button>
+				<p><?=$err?> </p>
+			</form>
+    <? endif; ?>
+</div>
 </body>
 </html>
