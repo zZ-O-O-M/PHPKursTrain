@@ -1,3 +1,6 @@
+<?php
+include_once("model/apps.php");
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,10 +14,10 @@
 
 <div class="form">
 	<form class='appForm' method="post">
-		<label for="name">name:</label> <br>
-		<input type="text" name="name" id="name"><br>
-		<label for="phone">phone:</label> <br>
-		<input type="text" name="phone" id="phone"><br>
+		Name: <br>
+		<input type="text" name="name"><br>
+		Phone: <br>
+		<input type="text" name="phone"><br>
 		<button>send</button>
 		<p class="err"></p>
 	</form>
@@ -27,7 +30,7 @@
 
     let formData = new FormData(form);
 
-    fetch('send.php', {
+    fetch('Files/send.php', {
       method: 'POST',
       body: formData
     }).then(response => response.json())
