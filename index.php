@@ -1,3 +1,25 @@
+<?php
+
+$dir = 'gallery/images';
+
+$files = scandir($dir);
+$images = array_filter($files, function ($f) {
+    return is_file("gallery/images/$f") and preg_match('/.*\.jpg$/', $f);
+});
+
+//foreach ($files as $f) {
+//    if (is_file("$dir/$f") and preg_match('/.*\.jpg$/', $f)) {
+//        $images[] = $f;
+//    }
+//}
+
+echo '<pre>';
+print_r($files);
+print_r($images);
+echo '</pre>';
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,40 +30,11 @@
 	<title>Document</title>
 </head>
 <body>
-
-<div class="form">
-	<form class='appForm' method="post">
-		<label for="name">name:</label> <br>
-		<input type="text" name="name" id="name"><br>
-		<label for="phone">phone:</label> <br>
-		<input type="text" name="phone" id="phone"><br>
-		<button>send</button>
-		<p class="err"></p>
-	</form>
+<div class="gallery">
+    <? foreach ($images as $img): ?>
+			<img src="gallery/images/<?=$img?>" alt="" width="100">
+    <? endforeach; ?>
 </div>
-<script>
-  let form = document.querySelector('.appForm');
-  let errorBox = document.querySelector('.err');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    let formData = new FormData(form);
-
-    fetch('send.php', {
-      method: 'POST',
-      body: formData
-    }).then(response => response.json())
-      .then(data => {
-        console.log(data);
-
-        if (data['res']) {
-          form.innerHTML = "Your app is done!";
-        } else {
-          errorBox.innerHTML = data.error;
-        }
-      })
-
-  })
-</script>
 </body>
 </html>
