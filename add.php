@@ -16,6 +16,7 @@ $sql = "INSERT messages (name, text, status) VALUES (:user, :text, :status)";
 $query = $db->prepare($sql);
 
 // Получается так, что execute применит bindParam к каждой маске самостоятельно
+// Имена у ключей совпадают с именами масок, но пишутся без двоеточия
 $params = [
     'name' => 'Admin',
     'text' => 'Delete all another one!',
@@ -23,6 +24,17 @@ $params = [
 ];
 
 $query->execute($params);
+
+// errorInfo - метод который вернёт информацию о возникших ошибках при выполнении sql за проса
+$errInfo = $query->errorInfo();
+
+if ($errInfo[0] !== PDO::ERR_NONE) {
+//    REAL: throw new exception
+    echo $errInfo[2];
+    exit();
+} else {
+    echo "All done!";
+}
 
 //$userName = 'Admin';    //$_POST['name']
 //$userText = 'Delete all!';  //$_POST['text']
