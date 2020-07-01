@@ -1,13 +1,9 @@
-<?php
-include_once('model/db.php');
-include_once('model/messages.php');
-
-$messages = messagesAll();
-
-?>
 <h1>Chat</h1>
 <br>
 <a href="add.php" style="color: blue; text-decoration: none">add message</a>
+<br>
+<br>
+<a href="index.php?view=table" style="color: blue; text-decoration: none">View as table</a>
 <br>
 <br>
 <div>

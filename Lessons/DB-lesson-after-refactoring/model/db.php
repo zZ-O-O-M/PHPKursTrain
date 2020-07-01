@@ -2,7 +2,6 @@
 
 function dbInstance(): PDO {
     static $db;
-
     if ($db === null) {
         $db = new PDO('mysql:host=localhost;dbname=php1simple', 'root', '', [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC

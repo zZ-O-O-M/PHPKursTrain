@@ -1,7 +1,6 @@
 <?php
-include_once('model/db.php');
+include_once('model/messages.php');
 
-$isSend = false;
 $err = '';
 
 $fields = ['name' => '', 'text' => ''];
@@ -15,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if (mb_strlen($fields['name'], 'UTF8') < 2) {
         $err = 'Имя должно быть не короче двух символов!';
     } else {
-        $res = dbQuery("INSERT messages (name, text) VALUES (:name, :text)", $fields);
+        messagesAdd($fields);
         header("Location: index.php");
         exit();
     }
