@@ -6,7 +6,13 @@
 		Text: <br>
 		<textarea name="text"><?= $fields['text'] ?></textarea> <br>
 		<button>send</button>
-		<p class="err"><?= $err ?></p>
+		<div class="error-list">
+        <? if (!empty($validateErrors)) {
+            foreach ($validateErrors as $error): ?>
+							<p><?= $error ?></p>
+						<? endforeach;
+        } ?>
+		</div>
 	</form>
 
 </div>
