@@ -6,7 +6,7 @@ $strId = $_GET['id'] ?? "";
 $message = messagesOne((int)$strId);
 $hasMsg = $message !== false;
 
-include "views/base/v_header.php";
+include "views/base/v_main.php";
 
 
 if ($hasMsg) {

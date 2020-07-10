@@ -6,15 +6,13 @@ $strId = $_GET['id'] ?? "";
 $message = messagesOne((int)$strId);
 $hasMsg = $message !== false;
 
-include "views/base/v_header.php";
-
+include "views/base/v_main.php";
 
 if ($hasMsg) {
-    include('views/v_message.php');
+    $pageTitle = $message['name'];
+    $pageContent = template('v_message', ['message' => $message]);
 } else {
 //    поправить из массива $_SERVER
     header("HTTP/1.1 404 Not Found");
-    include('views/errors/v_404.php');
+    $pageContent = template('errors/v_404');
 }
-
-include "views/base/v_footer.php";

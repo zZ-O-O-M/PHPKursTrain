@@ -1,4 +1,4 @@
-<? include "views/base/v_header.php"; ?>
+<? include "views/base/v_main.php"; ?>
 
 <h1>Chat</h1>
 <br>
