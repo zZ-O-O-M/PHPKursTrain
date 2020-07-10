@@ -1,14 +1,12 @@
-<? include "views/base/v_main.php"; ?>
-
 <h1>Chat</h1>
 <br>
 <a href="index.php?c=add" style="color: blue; text-decoration: none">add message</a>
 <br>
 <br>
-<a href="index.php?view=table" style="color: blue; text-decoration: none">View as list</a>
+<a href="index.php" style="color: blue; text-decoration: none">View as list</a>
 <br>
 <br>
-<table>
+<table class="table">
     <? foreach ($messages as $message): ?>
 			<tr>
 				<td class="name"><?= $message['name'] ?></td>
@@ -18,4 +16,3 @@
     <? endforeach; ?>
 </table>
 
-<? include "views/base/v_footer.php"; ?>

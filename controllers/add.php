@@ -1,6 +1,9 @@
 <?php
+
 include_once('model/messages.php');
 include_once('core/arr.php');
+
+$pageTitle = 'Добавить сообщение';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fields = extractFields($_POST, ['name', 'text']);
@@ -17,7 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $validateErrors = [];
 }
 
-include("views/v_add.php");
+$content = template("v_add", [
+        'fields' => $fields,
+        'validateErrors' => $validateErrors]
+);
+
+$pageContent = template('base.v_con2col', [
+    'left' => $left,
+    'content' => $content,
+    'title' => $pageTitle
+]);
+
 
 
 

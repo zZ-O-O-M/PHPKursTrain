@@ -1,4 +1,3 @@
-<? include "views/base/v_main.php"; ?>
 <main>
 	<h1>Chat</h1>
 	<br>
@@ -23,4 +22,3 @@
       <? endforeach; ?>
 	</div>
 </main>
-<? include "views/base/v_footer.php"; ?>
