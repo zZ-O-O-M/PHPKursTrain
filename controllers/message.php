@@ -8,10 +8,11 @@ $hasMsg = $message !== false;
 
 if ($hasMsg) {
     $pageTitle = $message['name'];
-    $content = template('v_message', ['message' => $message]);
+    $left = template('messages/v_message_left-part');
+    $content = template('messages/v_message', ['message' => $message]);
 
-    $pageContent = template('base.v_con2col',[
-        'left' => '1',
+    $pageContent = template('base/v_con2col', [
+        'left' => $left,
         'content' => $content,
         'title' => 'one_message'
     ]);

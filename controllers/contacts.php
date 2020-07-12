@@ -3,9 +3,10 @@
 $pageTitle = 'Контакты';
 
 $left = 'tmp';
-$content = template('v_contacts');
+$left = template('contacts/v_left_menu');
+$content = template('contacts/v_main');
 
-$pageContent = template('base.v_con2col',[
+$pageContent = template('base/v_con2col',[
     'left' => $left,
     'content' => $content,
     'title' => $pageTitle
