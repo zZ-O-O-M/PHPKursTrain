@@ -4,7 +4,7 @@
 		<input type="text" name="name" value="<?= $fields['name'] ?>"><br>
 		Text: <br>
 		<textarea name="text"><?= $fields['text'] ?></textarea> <br>
-		<button class="btn">send</button>
+		<button class="btn btn-success" >send</button>
 		<div class="error-list">
         <? if (!empty($validateErrors)) {
             foreach ($validateErrors as $error): ?>

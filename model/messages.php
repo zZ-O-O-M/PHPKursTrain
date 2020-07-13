@@ -1,6 +1,4 @@
 <?
-include_once('core/db.php');
-
 
 function messagesAll(): array {
     $res = dbQuery("SELECT * FROM messages ORDER BY dt_add DESC");

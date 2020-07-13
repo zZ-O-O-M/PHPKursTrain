@@ -1,8 +1,5 @@
 <?php
 
-include_once('model/messages.php');
-include_once('core/arr.php');
-
 $pageTitle = 'Добавить сообщение';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,12 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $validateErrors = [];
 }
 
-$content = template("v_add", [
+$left = '1';
+
+$content = template("messages/v_add", [
         'fields' => $fields,
         'validateErrors' => $validateErrors]
 );
 
-$pageContent = template('base.v_con2col', [
+$pageContent = template('base/v_con2col', [
     'left' => $left,
     'content' => $content,
     'title' => $pageTitle

@@ -1,6 +1,5 @@
 <?php
 
-include_once('model/messages.php');
 
 $messages = messagesAll();
 $isTable = ($_GET['view'] ?? '') === 'table';
