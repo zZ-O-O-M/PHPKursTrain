@@ -23,9 +23,9 @@
 <nav class="site-nav">
 	<div class="container">
 		<ul class="nav">
-			<li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-			<li class="nav-item"><a href="index.php?c=add" class="nav-link">Add</a></li>
-			<li class="nav-item"><a href="index.php?c=contacts" class="nav-link">Contacts</a></li>
+			<li class="nav-item"><a href="<?= BASE_URL ?>" class="nav-link">Home</a></li>
+			<li class="nav-item"><a href="<?= BASE_URL ?>add" class="nav-link">Add</a></li>
+			<li class="nav-item"><a href="<?= BASE_URL ?>contacts" class="nav-link">Contacts</a></li>
 		</ul>
 	</div>
 </nav>

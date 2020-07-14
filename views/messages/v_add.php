@@ -15,6 +15,6 @@
 	</form>
 </div>
 
-<a href="index.php">Main page</a>
+<a href="<?=BASE_URL?>">Main page</a>
 
 

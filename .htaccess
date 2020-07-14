@@ -1,4 +1,12 @@
-Options - Indexes
+RewriteEngine on
+
+# отмена переписывание url адреса для всех адресов, которые являются прямыми попаданиями в конкретный файл
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#Команда, которая говорит, что мы какой-то URL адрес приводим к другому виду
+RewriteRule .* index.php?querysystemurl=$0 [QSA]
+
+Options -Indexes
 
 <FilesMatch "\.(php)$">
     Deny from all
